@@ -79,15 +79,15 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 // TODO make tap yield sticky caps/nums and double tap yield caps/num word
 
 // Tap: caps-word | double-tap: sticky caps-layer | Hold: shift.
-#define SMART_SHFT &smart_shft LSHFT
-ZMK_HOLD_TAP(smart_shft, bindings = <&kp>, <&shft_dance>; flavor = "balanced";
-             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
-ZMK_TAP_DANCE(shft_dance, bindings = <&caps_word>, <&sk LSHFT>;
-              tapping-term-ms = <200>;)
-&caps_word {
-    /delete-property/ ignore-numbers;
-    continue-list = <BACKSPACE ENTER DELETE UNDERSCORE MINUS>;
-};
+/* #define SMART_SHFT &smart_shft LSHFT */
+/* ZMK_HOLD_TAP(smart_shft, bindings = <&kp>, <&shft_dance>; flavor = "balanced"; */
+/*              tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;) */
+/* ZMK_TAP_DANCE(shft_dance, bindings = <&caps_word>, <&sk LSHFT>; */
+/*               tapping-term-ms = <200>;) */
+/* &caps_word { */
+/*     /delete-property/ ignore-numbers; */
+/*     continue-list = <BACKSPACE ENTER DELETE UNDERSCORE MINUS>; */
+/* }; */
 
 // Tap: num-word | double-tap: sticky num-layer | Hold: num-layer.
 #define SMART_NUM &smart_num NUM 0
@@ -148,7 +148,7 @@ ZMK_BASE_LAYER(Base,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     XXX           &kp Q         &kp X         &kp M         &kp C         &kp V       ,   &kp K         &kp P         &comma_morph  &dot_morph    &qexcl        XXX         ,
 //╰─────────────┬─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              SMART_MOUSE   &kp SPACE     &sk NAV     ,   SMART_NUM     SMART_SHFT    &sk SYS
+                                              SMART_MOUSE   &kp SPACE     &sk NAV     ,   SMART_NUM     &caps_word    &sk SYS
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
