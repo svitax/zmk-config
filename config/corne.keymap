@@ -133,7 +133,7 @@ SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
 
 /* Keymap */
 
-/* ZMK_CONDITIONAL_LAYER(fn, NAV NUM, FN) // NAV + NUM --> FN. */
+ZMK_CONDITIONAL_LAYER(fn, NAV NUM, FN) // NAV + NUM --> FN.
 
 #ifndef ZMK_BASE_LAYER
   #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                 \
