@@ -79,11 +79,11 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 // TODO make tap yield sticky caps/nums and double tap yield caps/num word
 
 // Tap: caps-word | double-tap: sticky caps-layer | Hold: shift.
-#define SMART_SHFT &smart_shft LSHFT
-ZMK_HOLD_TAP(smart_shft, bindings = <&kp>, <&shft_dance>; flavor = "balanced";
-             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
-ZMK_TAP_DANCE(shft_dance, bindings = <&caps_word>, <&sk LSHFT>;
-              tapping-term-ms = <200>;)
+/* #define SMART_SHFT &smart_shft LSHFT */
+/* ZMK_HOLD_TAP(smart_shft, bindings = <&kp>, <&shft_dance>; flavor = "balanced"; */
+/*              tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;) */
+/* ZMK_TAP_DANCE(shft_dance, bindings = <&caps_word>, <&sk LSHFT>; */
+/*               tapping-term-ms = <200>;) */
 &caps_word {
     /delete-property/ ignore-numbers;
     continue-list = <BACKSPACE ENTER DELETE UNDERSCORE MINUS>;
