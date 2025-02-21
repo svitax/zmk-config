@@ -19,8 +19,8 @@
 // 8-argument version of ZMK_COMBO defined in corne.keymap.
 
 /* Horizontal combos - left hand */
+ZMK_COMBO(gt,    &kp GT,       LT1 LT2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 ZMK_COMBO(lt,    &kp LT,       LT2 LT3,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(rt,    &kp RT,       LT1 LT2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
 /* Horizontal combos - right hand */
 ZMK_COMBO(lbkt,  &kp LBKT,     RT1 RT2,     DEF     NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
