@@ -114,13 +114,13 @@ ZMK_TRI_STATE(
                 bindings = <BINDING1>, <BINDING2>;)
 
 // Tap: comma | Shift + tap: semicolon.
-SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &kp LESS_THAN)
+SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &kp SEMICOLON)
 // Tap: comma | Shift + tap: semicolon | Ctrl + shift + tap: <.
 // SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &comma_inner_morph)
 // SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
 
 // Tap: dot | Shift + tap: colon.
-SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &kp GREATER_THAN)
+SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &kp COLON)
 // Tap: dot | Shift + tap: colon | Ctrl + shift + tap: >.
 // SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &dot_inner_morph)
 // SIMPLE_MORPH(dot_inner_morph, CTL, &kp COLON, &kp GREATER_THAN)
