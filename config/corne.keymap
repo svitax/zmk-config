@@ -134,10 +134,13 @@ SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
 #define NEXT      &hmr LALT C_NEXT        // Next.
 #define VOL_DOWN  &hmr RCTRL C_VOL_DN
 #define VOL_UP    &kp C_VOL_UP
+#define SPACE_NAV &hml SPACE NAV
 
 /* Keymap */
 
-ZMK_CONDITIONAL_LAYER(fn, NAV NUM, SYS) // NAV + NUM --> SYS.
+// TODO possibly switch to canary layout
+
+ZMK_CONDITIONAL_LAYER(fn, MOUSE FN, SYS) // MOUSE + FN --> SYS.
 
 #ifndef ZMK_BASE_LAYER
   #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                 \
@@ -148,11 +151,11 @@ ZMK_BASE_LAYER(Base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp ESC       &kp B         &kp L         &kp D         &kp W         &kp Z       ,   &kp SQT       &kp F         &kp O         &kp U         &kp J         &kp BSPC    ,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp TAB       &hml LGUI N   &hml LALT R   &hml LCTRL T  &hml LSHFT S  &kp G       ,   &kp Y         &hmr RSHFT H  &hmr RCTRL A  &hmr LALT E   &hmr RGUI I   &kp RET     ,
+    &kp TAB       &kp N         &kp R         &kp T         &kp S         &kp G       ,   &kp Y         &kp H         &kp A         &kp E         &kp I         &kp RET     ,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    XXX           &kp Q         &kp X         &kp M         &kp C         &kp V       ,   &kp K         &kp P         &comma_morph  &dot_morph    &qexcl        XXX         ,
+    SMART_MOUSE   &kp Q         &kp X         &kp M         &kp C         &kp V       ,   &kp K         &kp P         &comma_morph  &dot_morph    &qexcl        &sl FN      ,
 //╰─────────────┬─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              SMART_MOUSE   &kp SPACE     &sl NAV     ,   SMART_NUM     SMART_SHFT    &sl FN
+                                              &sk LGUI      SPACE_NAV     &sk LALT    ,   &sk RCTRL     SMART_SHFT    SMART_NUM
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
