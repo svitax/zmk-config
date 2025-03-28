@@ -134,7 +134,7 @@ SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
 #define NEXT      &hmr LALT C_NEXT        // Next.
 #define VOL_DOWN  &hmr RCTRL C_VOL_DN
 #define VOL_UP    &kp C_VOL_UP
-#define SPACE_NAV &hml NAV SPACE
+#define SPACE_NAV &lt NAV SPACE
 
 /* Keymap */
 
