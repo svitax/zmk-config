@@ -141,6 +141,7 @@ SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
 // TODO possibly switch to canary layout
 
 ZMK_CONDITIONAL_LAYER(fn, MOUSE FN, SYS) // MOUSE + FN --> SYS.
+ZMK_CONDITIONAL_LAYER(fn, NAV NUM, SYS) // NAV + NUM --> SYS.
 
 #ifndef ZMK_BASE_LAYER
   #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                 \
