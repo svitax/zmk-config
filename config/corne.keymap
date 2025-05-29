@@ -82,7 +82,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 #define SMART_SHFT &smart_shft LSHFT 0
 ZMK_HOLD_TAP(smart_shft, bindings = <&kp>, <&shft_dance>; flavor = "balanced";
              tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
-ZMK_TAP_DANCE(shft_dance, bindings = <&caps_word>, <&sk LSHFT>;
+ZMK_TAP_DANCE(shft_dance, bindings = <&sk LSHFT>, <&caps_word>;
               tapping-term-ms = <200>;)
 &caps_word {
     /delete-property/ ignore-numbers;
@@ -93,7 +93,7 @@ ZMK_TAP_DANCE(shft_dance, bindings = <&caps_word>, <&sk LSHFT>;
 #define SMART_NUM &smart_num NUM 0
 ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
              tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
-ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
+ZMK_TAP_DANCE(num_dance, bindings = <&sl NUM>, <&num_word NUM>;
              tapping-term-ms = <200>;)
 
 // Smart-mouse, requires tri-state module.
