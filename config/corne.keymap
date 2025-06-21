@@ -128,6 +128,15 @@ SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &kp COLON)
 // Tap: qmark | Shift + tap: excl.
 SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
 
+// Tap: lbkt | Shift + tap: lpar
+SIMPLE_MORPH(lbkt_lpar, SFT, &kp LBKT, &kp LPAR)
+// Tap: rkbt | Shift + tap: rpar
+SIMPLE_MORPH(rbkt_rpar, SFT, &kp RBKT, &kp RPAR)
+// Tap: lbrc | Shift + tap: lt
+SIMPLE_MORPH(lbrc_lt, SFT, &kp LBRC, &kp LT)
+// Tap: rbrc | Shift + tap: gt
+SIMPLE_MORPH(rbrc_gt, SFT, &kp RBRC, &kp GT)
+
 // Misc aliases. [TODO: clean up]
 #define CANCEL    &kp K_CANCEL            // Cancel caps-word & auto-layers.
 #define PREV      &hmr LSHFT C_PREV       // Previous.
@@ -166,7 +175,7 @@ ZMK_BASE_LAYER(Nav,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           &sk LGUI      &sk LALT      &sk LCTRL     &sk LSHFT     ___         ,   &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     ___           ___         ,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___           ___         ,
+    ___           ___           ___           ___           ___           ___         ,   &lbrc_lt      &lbkt_lpar    &rbkt_rpar    &rbrc_gt      ___           ___         ,
 //╰─────────────┬─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               ___           ___           ___         ,   ___           CANCEL        ___
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
