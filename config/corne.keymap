@@ -128,14 +128,14 @@ SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &kp COLON)
 // Tap: qmark | Shift + tap: excl.
 SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
 
-// Tap: lbkt | Shift + tap: lpar
-SIMPLE_MORPH(lbkt_lpar, SFT, &kp LBKT, &kp LPAR)
-// Tap: rkbt | Shift + tap: rpar
-SIMPLE_MORPH(rbkt_rpar, SFT, &kp RBKT, &kp RPAR)
-// Tap: lbrc | Shift + tap: lt
-SIMPLE_MORPH(lbrc_lt, SFT, &kp LBRC, &kp LT)
-// Tap: rbrc | Shift + tap: gt
-SIMPLE_MORPH(rbrc_gt, SFT, &kp RBRC, &kp GT)
+// Tap: lbrc | Shift + tap: lpar
+SIMPLE_MORPH(lbkt_lpar, SFT, &kp LBRC, &kp LPAR)
+// Tap: rbrc | Shift + tap: rpar
+SIMPLE_MORPH(rbkt_rpar, SFT, &kp RBRC, &kp RPAR)
+// Tap: lbkt | Shift + tap: lt
+SIMPLE_MORPH(lbrc_lt, SFT, &kp LBKT, &kp LT)
+// Tap: rbkt | Shift + tap: gt
+SIMPLE_MORPH(rbrc_gt, SFT, &kp RBKT, &kp GT)
 
 // Misc aliases. [TODO: clean up]
 #define CANCEL    &kp K_CANCEL            // Cancel caps-word & auto-layers.
