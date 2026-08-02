@@ -25,5 +25,6 @@ manifest:
     # BLECorne
     - name: wireless-corne_zmk_config
       remote: boardsource
+      revision: master
   self:
     path: config
