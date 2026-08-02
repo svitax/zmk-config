@@ -7,6 +7,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
+    - name: boardsource
+      url-base: https://github.com/boardsource
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
@@ -20,5 +22,8 @@ manifest:
       path: modules/zmk/auto-layer
     - name: zmk-tri-state
       path: modules/zmk/tri-state
+    # BLECorne
+    - name: wireless-corne_zmk_config
+      remote: boardsource
   self:
     path: config
