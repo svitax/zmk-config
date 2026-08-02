@@ -25,6 +25,6 @@ manifest:
     # BLECorne
     - name: wireless-corne_zmk_config
       remote: boardsource
-      revision: master
+      revision: b997bd8 # Pin to pre-Zephyr 4.1 commit
   self:
     path: config
