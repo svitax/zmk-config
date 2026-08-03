@@ -24,8 +24,6 @@ include:
   - board: nice_nano_v2
     shield: corne_right nice_view_adapter nice_view
   - board: blecorne_left
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
     shield: nice_view
   - board: blecorne_right
     shield: nice_view
