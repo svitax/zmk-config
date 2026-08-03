@@ -66,7 +66,6 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 /* Combos and mouse emulation */
 
 #include "combos.dtsi" // Must be sourced after HRM-combo hack.
-#include "mouse.dtsi"
 
 /* smart-shift & auto-layers */
 
@@ -90,13 +89,6 @@ ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
 ZMK_TAP_DANCE(num_dance, bindings = <&sl NUM>, <&num_word NUM>;
              tapping-term-ms = <200>;)
 
-// Smart-mouse, requires tri-state module.
-#define SMART_MOUSE &smart_mouse
-ZMK_TRI_STATE(
-    smart_mouse, bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
-    ignored-key-positions =
-        <LT1 LT2 LH0 LH1 LH2 RT0 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RB1 RB3 RH0 RH1 RH2>;
-    ignored-layers = <MOUSE NAV FN>;)
 
 // TODO smart_nav
 
@@ -130,12 +122,9 @@ tapping-term-ms = <200>;)
 //
 // select a word (jumps to next word upon each successive invocation)
 //
-select_word: select_word {
-    compatible = "zmk,behavior-mod-morph";
-    #binding-cells = <0>;
+ZMK_MOD_MORPH(select_word,
     bindings = <&select_word_right>, <&select_word_left>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-};
+    mods = <(MOD_LSFT|MOD_RSFT)>;)
 ZMK_MACRO(select_word_right,
 wait-ms = <SELECT_WORD_DELAY>;
 tap-ms = <SELECT_WORD_DELAY>;
@@ -150,12 +139,9 @@ bindings = <&kp LC(LEFT) &kp LC(RIGHT) &kp LC(LS(LEFT))>;
 //
 // extend current selection by one word
 //
-extend_word: extend_word {
-    compatible = "zmk,behavior-mod-morph";
-    #binding-cells = <0>;
+ZMK_MOD_MORPH(extend_word,
     bindings = <&extend_word_right>, <&extend_word_left>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-};
+    mods = <(MOD_LSFT|MOD_RSFT)>;)
 ZMK_MACRO(extend_word_right,
 wait-ms = <SELECT_WORD_DELAY>;
 tap-ms = <SELECT_WORD_DELAY>;
@@ -173,12 +159,9 @@ tapping-term-ms = <200>;)
 //
 // select current line
 //
-select_line: select_line {
-    compatible = "zmk,behavior-mod-morph";
-    #binding-cells = <0>;
+ZMK_MOD_MORPH(select_line,
     bindings = <&select_line_right>, <&select_line_left>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-};
+    mods = <(MOD_LSFT|MOD_RSFT)>;)
 ZMK_MACRO(select_line_right,
 wait-ms = <SELECT_WORD_DELAY>;
 tap-ms = <SELECT_WORD_DELAY>;
@@ -193,12 +176,9 @@ bindings = <&kp END &kp LS(HOME)>;
 //
 // extend current selection by one line
 //
-extend_line: extend_line {
-    compatible = "zmk,behavior-mod-morph";
-    #binding-cells = <0>;
+ZMK_MOD_MORPH(extend_line,
     bindings = <&extend_line_right>, <&extend_line_left>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-};
+    mods = <(MOD_LSFT|MOD_RSFT)>;)
 ZMK_MACRO(extend_line_right,
 wait-ms = <SELECT_WORD_DELAY>;
 tap-ms = <SELECT_WORD_DELAY>;
@@ -251,14 +231,13 @@ SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
 #define VOL_DOWN  &hmr RCTRL C_VOL_DN
 #define VOL_UP    &kp C_VOL_UP
 #define SPACE_CUR &lt CUR SPACE
-#define SC        &kp SEMICOLON
+#define SC        SEMICOLON
 
 /* Keymap */
 
 // TODO possibly switch to canary layout
 
-ZMK_CONDITIONAL_LAYER(fn, MOUSE FN, SYS) // MOUSE + FN --> SYS.
-ZMK_CONDITIONAL_LAYER(fn, NAV NUM, SYS) // NAV + NUM --> SYS.
+ZMK_CONDITIONAL_LAYER(fn, CUR NUM, SYS) // CUR + NUM --> SYS.
 
 #ifndef ZMK_BASE_LAYER
   #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                 \
@@ -297,7 +276,7 @@ ZMK_BASE_LAYER(Base,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &sl FN        &kp SQT       &kp COMMA     &kp DOT       &kp SEMICOLON &kp FSLH    ,   &kp J         &kp M         &kp G         &kp F         &kp V         ___         ,
 //╰─────────────┬─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              SMART_NUM     SPACE_CUR     &kp RET     ,   SMART_SHFT    &kp R         &sl WORLD
+                                              SMART_NUM     SPACE_CUR     &kp RET     ,   SMART_SHFT    &kp R         &sl WOR
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -309,7 +288,7 @@ ZMK_BASE_LAYER(Qwerty,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &sl FN        &kp Z         &kp X         &kp C         &kp V         &kp B       ,   &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      ___         ,
 //╰─────────────┬─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              SMART_NUM     SPACE_CUR     &kp RET     ,   SMART_SHFT    ___           &sl WORLD
+                                              SMART_NUM     SPACE_CUR     &kp RET     ,   SMART_SHFT    ___           &sl WOR
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -357,7 +336,7 @@ ZMK_BASE_LAYER(World,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &sl FN        &kp SQT       &kp COMMA     &kp DOT       &kp SEMICOLON &kp FSLH    ,   &kp J         &kp M         &kp G         &kp F         &kp V         ___         ,
 //╰─────────────┬─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              SMART_NUM     SPACE_CUR     &kp RET     ,   SMART_SHFT    &kp R         &sl WORLD
+                                              SMART_NUM     SPACE_CUR     &kp RET     ,   SMART_SHFT    &kp R         &sl WOR
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 

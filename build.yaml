@@ -25,5 +25,7 @@ include:
     shield: corne_right nice_view_adapter nice_view
   - board: blecorne_left
     shield: nice_view
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
   - board: blecorne_right
     shield: nice_view
