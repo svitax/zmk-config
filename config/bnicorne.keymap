@@ -200,32 +200,10 @@ tapping-term-ms = <200>;)
   ZMK_MOD_MORPH(NAME, mods = <(MOD_L##MOD | MOD_R##MOD)>;                      \
                 bindings = <BINDING1>, <BINDING2>;)
 
-// Tap: comma | Shift + tap: semicolon.
-SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &kp SEMICOLON)
-// Tap: comma | Shift + tap: semicolon | Ctrl + shift + tap: <.
-// SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &comma_inner_morph)
-// SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
-
-// Tap: dot | Shift + tap: colon.
-SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &kp COLON)
-// Tap: dot | Shift + tap: colon | Ctrl + shift + tap: >.
-// SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &dot_inner_morph)
-// SIMPLE_MORPH(dot_inner_morph, CTL, &kp COLON, &kp GREATER_THAN)
-
 // Tap: qmark | Shift + tap: excl.
 SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
 
-// Tap: lbrc | Shift + tap: lpar
-SIMPLE_MORPH(lbrc_lbkt, SFT, &kp LBRC, &kp LBKT)
-// Tap: rbrc | Shift + tap: rpar
-SIMPLE_MORPH(rbrc_rbkt, SFT, &kp RBRC, &kp RBKT)
-// Tap: lpar | Shift + tap: lt
-SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
-// Tap: rpar | Shift + tap: gt
-SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
-
 // Misc aliases. [TODO: clean up]
-#define CANCEL    &kp K_CANCEL            // Cancel caps-word & auto-layers.
 #define PREV      &hmr LSHFT C_PREV       // Previous.
 #define NEXT      &hmr LALT C_NEXT        // Next.
 #define VOL_DOWN  &hmr RCTRL C_VOL_DN
