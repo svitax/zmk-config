@@ -63,11 +63,11 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
   MAKE_HRM(hm_combo_##NAME, &kp, TAP, SIDE THUMBS)                             \
   ZMK_COMBO(NAME, &hm_combo_##NAME HOLD 0, POS, LAYERS, COMBO_MS, IDLE_MS)
 
-/* Combos and mouse emulation */
+/* Combos */
 
 #include "combos.dtsi" // Must be sourced after HRM-combo hack.
 
-/* smart-shift & auto-layers */
+/* Smart-shift & auto-layers */
 
 // TODO make tap yield sticky caps/nums and double tap yield caps/num word
 
@@ -92,12 +92,11 @@ ZMK_TAP_DANCE(num_dance, bindings = <&sl NUM>, <&num_word NUM>;
 
 // TODO smart_nav
 
-//////////////////////////////////////////////////////////////////////////
-//
-// Approximation of Pascal Getreuer's Select Word macro from QMK
-// - https://getreuer.info/posts/keyboards/select-word/index.html
-//
-//////////////////////////////////////////////////////////////////////////
+/* Select word / line
+ *
+ * Approximation of Pascal Getreuer's Select Word macro from QMK
+ * - https://getreuer.info/posts/keyboards/select-word/index.html
+ */
 
 //
 // SELECT_WORD_DELAY defines how long the macro waits (miliseconds) after moving
@@ -193,9 +192,9 @@ bindings = <&kp LS(UP) &kp LS(HOME)>;
 ZMK_TAP_DANCE(sel_ext_line, bindings = <&select_line>, <&extend_line>;
 tapping-term-ms = <200>;)
 
-/* Custom behaviors */
+/* Mod-morphs */
 
-// Define mod-morph with a *single* mod trigger for less repetition.
+// Define a mod-morph with a *single* mod trigger for less repetition.
 #define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2)                            \
   ZMK_MOD_MORPH(NAME, mods = <(MOD_L##MOD | MOD_R##MOD)>;                      \
                 bindings = <BINDING1>, <BINDING2>;)
@@ -203,7 +202,8 @@ tapping-term-ms = <200>;)
 // Tap: qmark | Shift + tap: excl.
 SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
 
-// Misc aliases. [TODO: clean up]
+/* Misc aliases */
+
 #define PREV      &hmr LSHFT C_PREV       // Previous.
 #define NEXT      &hmr LALT C_NEXT        // Next.
 #define VOL_DOWN  &hmr RCTRL C_VOL_DN
