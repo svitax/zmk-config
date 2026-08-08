@@ -209,6 +209,7 @@ SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
 #define VOL_DOWN  &hmr RCTRL C_VOL_DN
 #define VOL_UP    &kp C_VOL_UP
 #define SPACE_CUR &lt CUR SPACE
+#define RET_FN    &lt FN RET
 #define SC        SEMICOLON
 
 /* Keymap */
@@ -250,11 +251,11 @@ ZMK_BASE_LAYER(Base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &tog QWE      &kp Q         &kp Y         &kp O         &kp U         &kp EQUAL   ,   &kp X         &kp L         &kp D         &kp P         &kp Z         ___         ,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp B         &hml LSHFT C  &hml LGUI I   &hml LCTRL A  &hml LALT E   &kp MINUS   ,   &kp K         &hmr RALT H   &hmr RCTRL T  &hmr RGUI N   &hmr RSHFT S  &kp W       ,
+    &kp B         &hml LSHFT C  &hml LGUI I   &hml LCTRL A  &hml LALT E   &kp MINUS   ,   &kp K         &hmr LALT H   &hmr RCTRL T  &hmr RGUI N   &hmr RSHFT S  &kp W       ,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &sl FN        &kp SQT       &kp COMMA     &kp DOT       &kp SEMICOLON &kp FSLH    ,   &kp J         &kp M         &kp G         &kp F         &kp V         ___         ,
+    ___           &kp SQT       &kp COMMA     &kp DOT       &kp SEMICOLON &kp FSLH    ,   &kp J         &kp M         &kp G         &kp F         &kp V         ___         ,
 //╰─────────────┬─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              SMART_NUM     SPACE_CUR     &kp RET     ,   SMART_SHFT    &kp R         &sl WOR
+                                              SMART_NUM     SPACE_CUR     RET_FN      ,   SMART_SHFT    &kp R         &sl WOR
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -262,11 +263,11 @@ ZMK_BASE_LAYER(Qwerty,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &tog DEF      &kp Q         &kp W         &kp E         &kp R         &kp T       ,   &kp Y         &kp U         &kp I         &kp O         &kp P         ___         ,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           &hml LSHFT A  &hml LGUI S   &hml LCTRL D  &hml LALT F   &kp G       ,   &kp H         &hmr RALT J   &hmr RCTRL K  &hmr RGUI L   &hmr RSHFT SC &kp SQT     ,
+    ___           &hml LSHFT A  &hml LGUI S   &hml LCTRL D  &hml LALT F   &kp G       ,   &kp H         &hmr LALT J   &hmr RCTRL K  &hmr RGUI L   &hmr RSHFT SC &kp SQT     ,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &sl FN        &kp Z         &kp X         &kp C         &kp V         &kp B       ,   &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      ___         ,
+    ___           &kp Z         &kp X         &kp C         &kp V         &kp B       ,   &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      ___         ,
 //╰─────────────┬─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              SMART_NUM     SPACE_CUR     &kp RET     ,   SMART_SHFT    ___           &sl WOR
+                                              SMART_NUM     SPACE_CUR     RET_FN      ,   SMART_SHFT    ___           &sl WOR
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -296,13 +297,13 @@ ZMK_BASE_LAYER(Num,
 
 ZMK_BASE_LAYER(Fn,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    ___           ___           &kp C_BRI_UP  &kp C_VOL_UP  &kp C_PREV    &bootloader ,   &bootloader   &kp F7        &kp F8        &kp F9        &kp F10       &kp F13     ,
+    &bt BT_CLR    &bt BT_SEL 0  &kp C_BRI_UP  &kp C_VOL_UP  &kp C_PREV    &bootloader ,   &bootloader   &kp F7        &kp F8        &kp F9        &kp F10       &kp F13     ,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           &kp C_BRI_DN  &kp C_VOL_DN  &kp C_NEXT    &sys_reset  ,   &sys_reset    &kp F4        &kp F5        &kp F6        &kp F11       &kp F14     ,
+    ___           &bt BT_SEL 1  &kp C_BRI_DN  &kp C_VOL_DN  &kp C_NEXT    &sys_reset  ,   &sys_reset    &kp F4        &kp F5        &kp F6        &kp F11       &kp F14     ,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           &kp PSCRN     &kp C_MUTE    &kp C_PP      ___         ,   ___           &kp F1        &kp F2        &kp F3        &kp F12       &kp F15     ,
+    ___           &bt BT_SEL 2  &kp PSCRN     &kp C_MUTE    &kp C_PP      &out OUT_TOG,   &out OUT_TOG  &kp F1        &kp F2        &kp F3        &kp F12       &kp F15     ,
 //╰─────────────┬─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              &bt BT_PRV    &out OUT_TOG  &bt BT_NXT  ,   &kp C_PWR     &kp K_LOCK    &kp C_SLEEP
+                                              ___           ___           ___         ,   &kp C_PWR     &kp K_LOCK    &kp C_SLEEP
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -310,7 +311,7 @@ ZMK_BASE_LAYER(World,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     ___           &kp Q         &kp Y         &kp O         &kp U         &kp EQUAL   ,   &kp X         &kp L         &kp D         &kp P         &kp Z         ___         ,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp B         &hml LSHFT C  &hml LGUI I   &hml LCTRL A  &hml LALT E   &kp MINUS   ,   &kp K         &hmr RALT H   &hmr RCTRL T  &hmr RGUI N   &hmr RSHFT S  &kp W       ,
+    &kp B         &hml LSHFT C  &hml LGUI I   &hml LCTRL A  &hml LALT E   &kp MINUS   ,   &kp K         &hmr LALT H   &hmr RCTRL T  &hmr RGUI N   &hmr RSHFT S  &kp W       ,
 //├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &sl FN        &kp SQT       &kp COMMA     &kp DOT       &kp SEMICOLON &kp FSLH    ,   &kp J         &kp M         &kp G         &kp F         &kp V         ___         ,
 //╰─────────────┬─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┬─────────────┼─────────────┼─────────────┴───────────────────────────╯
